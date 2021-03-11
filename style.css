@@ -9,6 +9,7 @@
 body {
   height: 100vh;
   font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 
 .title {
@@ -21,6 +22,7 @@ body {
 .calculator-body {
   height: 300px;
   width: 300px;
+  border: 3px solid black;
 
   background: rgba(200, 200, 200, 0.7);
   margin: auto;
@@ -30,6 +32,12 @@ body {
   width: 100%;
   background: lightgreen;
   height: 50px;
+  border: 2px solid black;
+
+  font-size: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 table {
@@ -43,9 +51,26 @@ button {
   font-weight: bold;
 }
 
+.btn-calculate {
+  /* Aqui é sobre a posição dele na página */
+  width: 200px;
+  position: relative;
+  margin: 1% 45% 0;
+
+  /* Aqui é pra deixar ele bonito */
+  border-radius: 10px;
+  color: #fff;
+  background: green;
+  transition: 500ms;
+}
+
+.btn-calculate:hover {
+  background: rgb(10, 200, 10);
+}
+
 footer {
   text-align: center;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 footer span {
