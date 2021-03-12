@@ -1,19 +1,63 @@
-let equation = [];
+let equation = "",
+  firstNumber = "",
+  operatorEscolhido = "",
+  secondNumber = "",
+  finalResult = 0;
+
+const operators = ["+", "-", "*", "/"];
 const visor = document.querySelector(".results");
 
 function Clear() {
-  equation = [0];
+  return (
+    (equation = ""),
+    (firstNumber = ""),
+    (secondNumber = ""),
+    (finalResult = 0),
+    (visor.innerHTML = 0)
+  );
 }
 
 // Essa função é responsável por pegar o algarismo digitado e colocar dentro do array
-function AddArray(algarismo) {
-  equation.push(algarismo);
+function AddNumber(algarismo) {
+  equation += algarismo;
 
-  if (algarismo === "C") Clear();
+  if (algarismo === "C") return Clear();
 
-  visor.innerHTML = equation;
+  if (equation.includes("+")) {
+    if (algarismo === "+") operatorEscolhido = "+";
+    else {
+      secondNumber += algarismo;
+    }
+  } else {
+    firstNumber += algarismo;
+  }
 
-  console.log(equation);
+  return (visor.innerHTML = equation);
 }
 
-AddArray(0);
+function Calculate() {
+  firstNumber = parseFloat(firstNumber);
+  secondNumber = parseFloat(secondNumber);
+
+  switch (operatorEscolhido) {
+    case "+":
+      finalResult = firstNumber + secondNumber;
+      break;
+
+    case "-":
+      finalResult = firstNumber - secondNumber;
+      break;
+
+    case "*":
+      finalResult = firstNumber * secondNumber;
+      break;
+
+    case "/":
+      finalResult = firstNumber / secondNumber;
+      break;
+  }
+
+  visor.innerHTML = finalResult;
+}
+
+Clear();
