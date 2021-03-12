@@ -4,4 +4,4 @@
 <p>The equation with two 'bodies' is working fine, try "2+2" and you will have the "4" output once you click in the equal button.</p>
 <p>It's not the most beautiful calculator in the world, but is <strong>my</strong> calculator.</p>
 
-![My calculator]("./images/CalculatorImage.png?raw=true "My Calculator")
+<img align="center" src="./images/CalculatorImage.png?raw=true"/>
