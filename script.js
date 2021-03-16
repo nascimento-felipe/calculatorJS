@@ -2,7 +2,8 @@ let equation = "",
   firstNumber = "",
   operatorEscolhido = "",
   secondNumber = "",
-  finalResult = 0;
+  finalResult = 0,
+  IsFirst = true;
 
 const operators = ["+", "-", "*", "/"];
 const visor = document.querySelector(".results");
@@ -13,7 +14,8 @@ function Clear() {
     (firstNumber = ""),
     (secondNumber = ""),
     (finalResult = 0),
-    (visor.innerHTML = 0)
+    (visor.innerHTML = 0),
+    (IsFirst = true)
   );
 }
 
@@ -32,7 +34,9 @@ function AddNumber(algarismo) {
     firstNumber += algarismo;
   }
 
-  return (visor.innerHTML = equation);
+  if (IsFirst) return (visor.innerHTML = equation);
+
+  return (visor.innerHTML = `${finalResult} ${operatorEscolhido} ${secondNumber}`);
 }
 
 function Calculate() {
@@ -42,18 +46,31 @@ function Calculate() {
   switch (operatorEscolhido) {
     case "+":
       finalResult = firstNumber + secondNumber;
+      firstNumber = finalResult;
+      secondNumber = "";
+      operatorEscolhido = "";
+      IsFirst = false;
       break;
 
     case "-":
       finalResult = firstNumber - secondNumber;
+      firstNumber = finalResult;
+      secondNumber = "";
+      operatorEscolhido = "";
       break;
 
     case "*":
       finalResult = firstNumber * secondNumber;
+      firstNumber = finalResult;
+      secondNumber = "";
+      operatorEscolhido = "";
       break;
 
     case "/":
       finalResult = firstNumber / secondNumber;
+      firstNumber = finalResult;
+      secondNumber = "";
+      operatorEscolhido = "";
       break;
   }
 
